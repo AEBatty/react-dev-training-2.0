@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
+    publicPath: "/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
@@ -26,6 +26,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    port: 9000,
   },
   plugins: [
     new HtmlWebpackPlugin({

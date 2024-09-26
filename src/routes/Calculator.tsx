@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import _ from 'lodash';
 
 import { Button } from "semantic-ui-react";
 
 export const Calculator = () => {
+  const transformedArray = _.pull(['a', 'b', 'c', 'a', 'b', 'c'], 'a', 'c')
 
   const[result, setResult] = useState<string>("0");
 
@@ -20,10 +22,9 @@ export const Calculator = () => {
 
 
   }
-
   return (
     <>
-
+      {transformedArray}
       <div>
         <input type="text" value={result} />
       </div>

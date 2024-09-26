@@ -8,6 +8,7 @@ import ErrorPage from "./routes/ErrorPage";
 import { Calculator } from "./routes/Calculator";
 import { DigitalClock } from "./routes/DigitalClock";
 import { InboxMessages } from "./routes/InboxMessages";
+import { ControlledInputs } from "./routes/ControlledInputs";
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
 import Root from "./routes/Root";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: "converter/",
                 element: <Converter />,
             },
+            {
+                path: "controlled-inputs/",
+                element: <ControlledInputs />,
+            },
 
         ],
     },
@@ -63,7 +68,5 @@ const domNode = document.getElementById('root')!;
 const root = ReactDOM.createRoot(domNode);
 
 root.render(
-    <React.StrictMode>
-        <RouterProvider router={router} />
-    </React.StrictMode>,
+    <RouterProvider router={router} />,
 )
