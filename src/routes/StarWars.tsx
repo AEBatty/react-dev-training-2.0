@@ -15,7 +15,6 @@ export const StarWars = () => {
 const[result, setResult] = useState<Array<string>>([]);
 const[loading, isLoading] = useState<boolean>(false);
 const[error, setError] = useState("");
-const[errorB, isError] = useState<boolean>(false);
 
 
 
@@ -32,7 +31,6 @@ const[errorB, isError] = useState<boolean>(false);
             setResult(() => {return text.results});
             }catch(e){
                 console.log(e);
-                isError(true);
                 setError("" + e);
                 isLoading(false);
             }

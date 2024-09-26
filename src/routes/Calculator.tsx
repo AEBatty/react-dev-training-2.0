@@ -11,6 +11,7 @@ export const Calculator = () => {
   const solveResult = (value: string) => {
 
 
+
     if(value === "C"){
       setResult(() => {return "0"});
     }else{
