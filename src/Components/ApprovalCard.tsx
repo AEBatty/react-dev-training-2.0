@@ -21,39 +21,37 @@ export const ApprovalCard = (props:ApprovalCardProps) => {
   
 
   const [status, setStatus]= useState<boolean|undefined>(undefined);
-  if(status === undefined){
+    console.log(status);
     return (
       <>
-        <Card>
-          <CardContent>
-            {props.children}
-          </CardContent>
-          <CardContent extra>
-            
-            <div className='ui two buttons'>
-              <Button basic color='green' onClick={() => {setStatus(true)}}>
-                Approve
-              </Button>
-              <Button basic color='red' onClick={() => {setStatus(false)}}>
-                Decline
-              </Button>
-            </div>
-          
-          </CardContent>
-        </Card>
+        {(() => {
+        if(status === undefined || status){
+          return (
+          <Card>
+            <CardContent>
+              {props.children}
+            </CardContent>
+              {(() => {
+                if(status === undefined || !status){
+                return (
+                  <CardContent extra>
+                    <div className='ui two buttons'>
+                      <Button basic color='green' onClick={() => {setStatus(true)}}>
+                        Approve
+                      </Button>
+                      <Button basic color='red' onClick={() => {setStatus(false)}}>
+                        Decline
+                      </Button>
+                    </div>
+                  
+                  </CardContent>
+                )}
+              }
+            )()}
+          </Card>
+          )}
+        }
+      )()}
       </>
     )
-  }
-  if(status){
-    return <>
-        <Card>
-          <CardContent>
-          {props.children}
-          </CardContent>
-        </Card>
-      </>
-  }
-    
-  return <></>;
-  
-}
+  }  
